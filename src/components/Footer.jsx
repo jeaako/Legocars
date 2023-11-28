@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <footer style={footerStyle}>
       <Typography variant="body2" color="inherit">
-        © {new Date().getFullYear()} Your Company. All rights reserved.
+        © {new Date().getFullYear()} LegoCars. Todos los derechos reservados.
       </Typography>
       <div>
         <Link href="#" style={linkStyle}>
@@ -32,7 +32,7 @@ const Footer = () => {
         </Link>
       </div>
       <Typography variant="body2" color="inherit">
-        Contact: your-email@example.com
+        Contacto: radiator-springs@adventures.com
       </Typography>
     </footer>
   );
