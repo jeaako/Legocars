@@ -1,13 +1,26 @@
+/* app.css */
+
+/* Estilos generales para el contenido principal */
 #root {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 0;
   padding: 2rem;
   text-align: center;
 }
 
+/* Estilos específicos para el Header */
+.Header {
+  background-color: #1976d2; /* Puedes cambiar el color de fondo según tus preferencias */
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Asegúrate de que el z-index sea mayor que cualquier otro elemento */
+}
+
 .logo {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -28,15 +41,18 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .logo:hover {
     animation: logo-spin infinite 20s linear;
   }
 }
 
+/* Estilos para el contenido principal dentro de la card */
 .card {
   padding: 2em;
+  margin-top: 4em; /* Ajusta el margen superior para dejar espacio para el Header */
 }
 
+/* Estilos adicionales si es necesario */
 .read-the-docs {
   color: #888;
 }
