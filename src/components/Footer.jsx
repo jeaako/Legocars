@@ -1,5 +1,8 @@
 // Footer.js
 import { Typography, Link } from '@mui/material';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = () => {
   const footerStyle = {
@@ -15,6 +18,10 @@ const Footer = () => {
     textDecoration: 'none',
   };
 
+  const iconStyle = {
+    fontSize: '48px', // Ajusta el tamaño de los iconos según sea necesario
+  };
+
   return (
     <footer style={footerStyle}>
       <Typography variant="body2" color="inherit">
@@ -22,13 +29,13 @@ const Footer = () => {
       </Typography>
       <div>
         <Link href="#" style={linkStyle}>
-          Facebook
+          <FacebookIcon style={iconStyle} />
         </Link>
         <Link href="#" style={linkStyle}>
-          Twitter
+          <TwitterIcon style={iconStyle} />
         </Link>
         <Link href="#" style={linkStyle}>
-          Instagram
+          <InstagramIcon style={iconStyle} />
         </Link>
       </div>
       <Typography variant="body2" color="inherit">

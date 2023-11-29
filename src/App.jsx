@@ -11,14 +11,14 @@ function App() {
     <>
       <div><Header/></div>
         
-      <h1>Vite + React</h1>
+      <h1>LEGOCARS</h1>
       <div className="card">      
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Bienvenido a Legocars! ¡La mejor aplicación de gestión de campeonatos!
       </p>
 
       <div><Footer/></div>

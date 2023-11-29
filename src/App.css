@@ -1,32 +1,29 @@
 /* app.css */
 
 /* Estilos generales para el contenido principal */
-#root {
-  max-width: 1280px;
-  margin: 0 0;
-  padding: 2rem;
-  text-align: center;
+body {
+  margin: 0; /* Elimina el margen predeterminado del body */
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
-/* Estilos específicos para el Header */
-.Header {
-  background-color: #1976d2; /* Puedes cambiar el color de fondo según tus preferencias */
-  padding: 1rem;
-  position: fixed;
+#root {
+  
+  margin: 0 auto; /* Centra el contenido en el eje horizontal */
+  text-align: center;
   width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000; /* Asegúrate de que el z-index sea mayor que cualquier otro elemento */
 }
+
 
 .logo {
   height: 6em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -49,7 +46,7 @@
 /* Estilos para el contenido principal dentro de la card */
 .card {
   padding: 2em;
-  margin-top: 4em; /* Ajusta el margen superior para dejar espacio para el Header */
+  margin-top: 4em;
 }
 
 /* Estilos adicionales si es necesario */
