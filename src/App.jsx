@@ -1,29 +1,45 @@
-import { useState } from 'react'
-
-import './App.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+// App.jsx
+import React, { useState } from 'react';
+import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import LoginForm from './components/LoginForm';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoginFormVisible, setLoginFormVisible] = useState(false);
+  const [isWelcomeTextVisible, setWelcomeTextVisible] = useState(true);
+
+  const handleLoginClick = () => {
+    setLoginFormVisible(true);
+    setWelcomeTextVisible(false);
+  };
+
+  const handleLoginFormClose = () => {
+    setLoginFormVisible(false);
+    setWelcomeTextVisible(true);
+  };
 
   return (
-    <>
-      <div><Header/></div>
-        
-      <h1>LEGOCARS</h1>
-      <div className="card">      
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      <p className="read-the-docs">
-        Bienvenido a Legocars! ¡La mejor aplicación de gestión de campeonatos!
-      </p>
+    <div>
+      <Header onLoginClick={handleLoginClick} />
 
-      <div><Footer/></div>
-    </>
-  )
+      <h1>LEGOCARS</h1>
+      <div className="card">
+        <p className={`welcome-text ${isWelcomeTextVisible ? 'visible' : ''}`}>
+          ¡Bienvenido al emocionante mundo de las competiciones de legocars en Radiador Spring! Descubre la adrenalina de las carreras de automóviles de Lego y forma parte de la acción.
+        </p>
+
+        {isLoginFormVisible && (
+          <LoginForm onClose={handleLoginFormClose} />
+        )}
+      </div>
+      
+
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+

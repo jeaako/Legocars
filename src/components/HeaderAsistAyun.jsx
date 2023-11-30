@@ -1,8 +1,7 @@
-// Header.jsx
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Link } from '@mui/material';
 
-const Header = ({ onLoginClick }) => {
+const HeaderAsistAyun = ({ onLoginClick }) => {
   return (
     <AppBar position="static" sx={{ backgroundColor: '#333c87' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
@@ -10,7 +9,7 @@ const Header = ({ onLoginClick }) => {
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <img
             src={"../../resources/acceso.png"}
-            alt="Iniciar Sesión"
+            alt="Cerrar Sesión"
             style={{
               width: '30px',
               height: '30px',
@@ -25,4 +24,4 @@ const Header = ({ onLoginClick }) => {
   );
 };
 
-export default Header;
+export default HeaderAsistAyun;
