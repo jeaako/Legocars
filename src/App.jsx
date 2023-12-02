@@ -1,25 +1,45 @@
 // App.jsx
 
 import './App.css';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 //import Layout from './components/Layout';
 import Home from './pages/Home';
 import HomeAsistente from './pages/HomeAsistente';
 import HomeAyuntamiento from './pages/HomeAyuntamiento';
 import HomeEquipo from './pages/HomeEquipo';
 import HomeFederacion from './pages/HomeFederacion';
+import Login from './pages/Login';
+import Logout from './pages/Logout';
 
-function App() {
+import { UserProvider } from './auth-routes/UserContext';
+import { useUser } from './auth-routes/UserContext'
+import Layout from './components/Layout';
+import PrivateRoute from './auth-routes/PrivateRoute';
+
+function AuthenticatedRoutes() {
+  const { isAuthenticated } = useUser();
 
   return (
+    <Routes>
+      <Route path="/*" element={<Layout />} >
+       <Route index element={<Home />} />
+       <Route path="login" element={ !isAuthenticated ? <Login /> : <Navigate to={"/logout"} />} />
+       <Route path="logout" element={<PrivateRoute ><Logout /></PrivateRoute>} />
+       <Route path="asistente" element={<PrivateRoute rol={'asistente'}><HomeAsistente /></PrivateRoute>} />
+       <Route path="ayuntamiento" element={<PrivateRoute rol={'ayuntamiento'}><HomeAyuntamiento /></PrivateRoute>} />
+       <Route path="equipo" element={<PrivateRoute rol={'equipo'}><HomeEquipo /></PrivateRoute>} />
+       <Route path="federacion"element={<PrivateRoute rol={'federacion'}><HomeFederacion /></PrivateRoute>} /> 
+      </Route>
+    </Routes>
+  );
+}
+
+function App() {
+  return (
       <div>
-      <Routes>
-          <Route index element={<Home />} />
-          <Route path="/asistente" element={<HomeAsistente />} />
-          <Route path="/ayuntamiento" element={<HomeAyuntamiento />} />
-          <Route path="/equipo" element={<HomeEquipo />} />
-          <Route path="/federacion" element={<HomeFederacion />} />   
-      </Routes>
+      <UserProvider>
+       <AuthenticatedRoutes />
+      </UserProvider>
       </div>
   );
 }

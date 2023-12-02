@@ -1,40 +1,30 @@
-// LoginForm.jsx
+// Login.jsx
 import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Typography, TextField, Button, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
-import PropTypes from 'prop-types';
+import { useUser } from '../auth-routes/UserContext';
 
-const LoginForm = ({ onClose }) => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
   const navigate = useNavigate();
+  const { loginUser } = useUser();
   
   const handleChange = (event) => {
     setRole(event.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    switch (role) {
-      case 'federacion':
-        navigate('/federacion');
-        break;
-      case 'ayuntamiento':
-        navigate('/ayuntamiento');
-        break;
-        case 'equipo':
-          navigate('/equipo');
-        break;
-      case 'asistente':
-        navigate('/asistente');
-        break;
-      // Agrega más casos según sea necesario
-      default:
-        break;
+    if (role != 'noRole') {
+      await loginUser(role);
+      navigate(`/${role}`);
+    } else {
+      alert('Es necesario loguearse para acceder esta funcionalidad.');
+      navigate(`/`);
     }
     // Aquí puedes manejar la lógica de inicio de sesión, como enviar los datos al servidor
-    onClose(); // Cierra el formulario después del envío del formulario
   };
 
   return (
@@ -86,9 +76,6 @@ const LoginForm = ({ onClose }) => {
   );
 };
 
-LoginForm.propTypes = {
-  onClose: PropTypes.func.isRequired,
-};
 
-export default LoginForm;
+export default Login;
 

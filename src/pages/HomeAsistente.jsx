@@ -18,8 +18,6 @@ import {
   FormControlLabel,
   Radio,
 } from '@mui/material';
-import Header from '../components/HeaderAsistAyun';
-import Footer from '../components/Footer';
 
 const HomeAsistente = () => {
   const [abrirDialogComprarEntrada, setabrirDialogComprarEntrada] = useState(false);
@@ -166,8 +164,6 @@ const HomeAsistente = () => {
 
   return (
     <>
-      <Header />
-
       <Container maxWidth="md">
         <div className="card">
           <p className={`welcome-text ${'visible'}`}>
@@ -508,8 +504,6 @@ const HomeAsistente = () => {
 
 
       </Container>
-
-      <Footer />
     </>
   );
 };
