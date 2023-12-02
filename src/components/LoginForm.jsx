@@ -1,14 +1,38 @@
 // LoginForm.jsx
-import React, { useState } from 'react';
+import  { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Container, Typography, TextField, Button, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const LoginForm = ({ onClose }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
+  const navigate = useNavigate();
+  
+  const handleChange = (event) => {
+    setRole(event.target.value);
+  };
 
   const handleSubmit = (e) => {
-    //e.preventDefault();
+    e.preventDefault();
+    switch (role) {
+      case 'federacion':
+        navigate('/federacion');
+        break;
+      case 'ayuntamiento':
+        navigate('/ayuntamiento');
+        break;
+        case 'equipo':
+          navigate('/equipo');
+        break;
+      case 'asistente':
+        navigate('/asistente');
+        break;
+      // Agrega más casos según sea necesario
+      default:
+        break;
+    }
     // Aquí puedes manejar la lógica de inicio de sesión, como enviar los datos al servidor
     onClose(); // Cierra el formulario después del envío del formulario
   };
@@ -45,7 +69,7 @@ const LoginForm = ({ onClose }) => {
             labelId="role-label"
             id="role"
             value={role}
-            onChange={(e) => setRole(e.target.value)}
+            onChange={handleChange}
             style={{ color: '#ffffff', borderColor: '#ffffff' }}
           >
             <MenuItem value="federacion">Federación</MenuItem>
@@ -60,6 +84,10 @@ const LoginForm = ({ onClose }) => {
       </form>
     </Container>
   );
+};
+
+LoginForm.propTypes = {
+  onClose: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

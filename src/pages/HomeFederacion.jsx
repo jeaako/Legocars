@@ -1,7 +1,8 @@
 // HomeFederacion.jsx
-import React from 'react';
-import Header from './components/HeaderFed';
-import Footer from './components/Footer';
+
+import Header from '../components/HeaderFed';
+import Footer from '../components/Footer';
+import Typography from '@mui/material/Typography';
 
 const HomeFederacion = () => {
   return (

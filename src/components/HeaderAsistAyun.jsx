@@ -1,5 +1,5 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Link } from '@mui/material';
+import { AppBar, Toolbar, Typography} from '@mui/material';
+import PropTypes from 'prop-types';
 
 const HeaderAsistAyun = ({ onLoginClick }) => {
   return (
@@ -22,6 +22,10 @@ const HeaderAsistAyun = ({ onLoginClick }) => {
       </Toolbar>
     </AppBar>
   );
+};
+
+HeaderAsistAyun.propTypes = {
+  onLoginClick: PropTypes.func.isRequired,
 };
 
 export default HeaderAsistAyun;

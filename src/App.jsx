@@ -1,42 +1,26 @@
 // App.jsx
-import React, { useState } from 'react';
+
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import LoginForm from './components/LoginForm';
+import { Routes, Route } from "react-router-dom";
+//import Layout from './components/Layout';
+import Home from './pages/Home';
+import HomeAsistente from './pages/HomeAsistente';
+import HomeAyuntamiento from './pages/HomeAyuntamiento';
+import HomeEquipo from './pages/HomeEquipo';
+import HomeFederacion from './pages/HomeFederacion';
 
 function App() {
-  const [isLoginFormVisible, setLoginFormVisible] = useState(false);
-  const [isWelcomeTextVisible, setWelcomeTextVisible] = useState(true);
-
-  const handleLoginClick = () => {
-    setLoginFormVisible(true);
-    setWelcomeTextVisible(false);
-  };
-
-  const handleLoginFormClose = () => {
-    setLoginFormVisible(false);
-    setWelcomeTextVisible(true);
-  };
 
   return (
-    <div>
-      <Header onLoginClick={handleLoginClick} />
-
-      <h1>LEGOCARS</h1>
-      <div className="card">
-        <p className={`welcome-text ${isWelcomeTextVisible ? 'visible' : ''}`}>
-          ¡Bienvenido al emocionante mundo de las competiciones de legocars en Radiador Spring! Descubre la adrenalina de las carreras de automóviles de Lego y forma parte de la acción.
-        </p>
-
-        {isLoginFormVisible && (
-          <LoginForm onClose={handleLoginFormClose} />
-        )}
+      <div>
+      <Routes>
+          <Route index element={<Home />} />
+          <Route path="/asistente" element={<HomeAsistente />} />
+          <Route path="/ayuntamiento" element={<HomeAyuntamiento />} />
+          <Route path="/equipo" element={<HomeEquipo />} />
+          <Route path="/federacion" element={<HomeFederacion />} />   
+      </Routes>
       </div>
-      
-
-      <Footer />
-    </div>
   );
 }
 

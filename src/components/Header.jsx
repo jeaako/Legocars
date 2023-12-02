@@ -1,6 +1,8 @@
+
 // Header.jsx
-import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+
 
 const Header = ({ onLoginClick }) => {
   return (
@@ -23,6 +25,10 @@ const Header = ({ onLoginClick }) => {
       </Toolbar>
     </AppBar>
   );
+};
+
+Header.propTypes = {
+  onLoginClick: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -1,7 +1,7 @@
 // HomeEquipo.jsx
-import React from 'react';
-import Header from './components/HeaderEquipo';
-import Footer from './components/Footer';
+import Header from '../components/HeaderEquipo';
+import Footer from '../components/Footer';
+import Typography from '@mui/material/Typography';
 
 const HomeEquipo = () => {
   return (
