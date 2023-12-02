@@ -1,5 +1,6 @@
-import React from 'react';
+
 import { AppBar, Toolbar, Typography, Button, Link } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const HeaderEquipo = ({ onLoginClick }) => {
   return (
@@ -42,6 +43,10 @@ const HeaderEquipo = ({ onLoginClick }) => {
       </Toolbar>
     </AppBar>
   );
+};
+
+HeaderEquipo.propTypes = {
+  onLoginClick: PropTypes.func.isRequired,
 };
 
 export default HeaderEquipo;

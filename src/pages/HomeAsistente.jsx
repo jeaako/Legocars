@@ -1,7 +1,7 @@
 // HomeAsistente.jsx
-import React from 'react';
-import Header from './components/HeaderAsistAyun';
-import Footer from './components/Footer';
+import Header from '../components/HeaderAsistAyun';
+import Footer from '../components/Footer';
+import Typography from '@mui/material/Typography';
 
 const HomeAsistente = () => {
   return (
