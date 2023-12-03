@@ -43,7 +43,7 @@ const HomeAyuntamiento = () => {
 
   return (
     <div style={{ marginTop: '60px', maxWidth: '1200px', margin: '0 auto', marginBottom: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <Paper style={{ backgroundColor: '#ccc', padding: '90px', width: '100%' }}>
+      <Paper style={{ backgroundColor: '#D7D7D7', padding: '90px', width: '100%', borderRadius: '20px' }}>
         <Grid container spacing={3} style={{ flexWrap: 'nowrap' }}>
           {/* Primer subpanel */}
           <Grid item xs={5}>

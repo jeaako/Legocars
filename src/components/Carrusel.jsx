@@ -28,7 +28,7 @@ const Carrusel = () => {
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center', marginBottom: 30 }}>
-      <Paper style={{ padding: '20px'/*, backgroundColor: 'grey'*/ }}>
+      <Paper style={{ padding: '20px'/*, backgroundColor: 'grey'*/, borderRadius: '20px' }}>
         <img
           src={images[currentImage]}
           alt={`Image ${currentImage + 1}`}
