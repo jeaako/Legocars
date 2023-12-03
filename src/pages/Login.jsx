@@ -28,8 +28,9 @@ const Login = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" align="center" gutterBottom>
+    
+    <Container maxWidth="sm" style={{backgroundColor: '#D7D7D7', padding: '30px', borderRadius:"20px" }}>
+      <Typography variant="h4" align="center" gutterBottom style={{ fontWeight: 'bold', color: '#333333' }}>
         Iniciar Sesión
       </Typography>
       <form onSubmit={handleSubmit}>
@@ -41,7 +42,7 @@ const Login = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           InputLabelProps={{ style: { color: '#888' } }}
-          InputProps={{ style: { color: '#ffffff', borderColor: '#ffffff' } }}
+          InputProps={{ style: { borderColor: '#ffffff' } }}
         />
         <TextField
           label="Contraseña"
@@ -51,16 +52,20 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           InputLabelProps={{ style: { color: '#888' } }}
-          InputProps={{ style: { color: '#ffffff', borderColor: '#ffffff' } }}
+          InputProps={{ style: { borderColor: '#ffffff' } }}
         />
         <FormControl fullWidth margin="normal">
+          
           <InputLabel id="role-label" style={{ color: '#888' }}>Rol</InputLabel>
+          
           <Select
+            label="Rol"
             labelId="role-label"
             id="role"
             value={role}
             onChange={handleChange}
-            style={{ color: '#ffffff', borderColor: '#ffffff' }}
+            style={{ borderColor: '#ffffff' }}
+            required
           >
             <MenuItem value="federacion">Federación</MenuItem>
             <MenuItem value="ayuntamiento">Ayuntamiento</MenuItem>

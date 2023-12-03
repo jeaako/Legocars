@@ -22,19 +22,23 @@ const Footer = () => {
     fontSize: '48px', // Ajusta el tamaño de los iconos según sea necesario
   };
 
+  const facebookLink = "https://www.facebook.com"; // Cambia la URL según corresponda
+  const twitterLink = "https://www.twitter.com"; // Cambia la URL según corresponda
+  const instagramLink = "https://www.instagram.com"; // Cambia la URL según corresponda
+
   return (
     <footer style={footerStyle}>
       <Typography variant="body2" color="inherit">
         © {new Date().getFullYear()} LegoCars. Todos los derechos reservados.
       </Typography>
       <div>
-        <Link href="#" style={linkStyle}>
+        <Link href={facebookLink} style={linkStyle}>
           <FacebookIcon style={iconStyle} />
         </Link>
-        <Link href="#" style={linkStyle}>
+        <Link href={twitterLink} style={linkStyle}>
           <TwitterIcon style={iconStyle} />
         </Link>
-        <Link href="#" style={linkStyle}>
+        <Link href={instagramLink} style={linkStyle}>
           <InstagramIcon style={iconStyle} />
         </Link>
       </div>
