@@ -14,6 +14,9 @@ const Campeonatos = () => {
     const [icon6, setIcon6] = useState(<AddIcon />);
     const [icon7, setIcon7] = useState(<AddIcon />);
     const [icon8, setIcon8] = useState(<AddIcon />);
+    const [visible6, setVisible6] = useState(false);
+    const [visible7, setVisible7] = useState(false);
+    const [visible8, setVisible8] = useState(false);
 
     const handleClick = (index) => {
         setIndex(index);
@@ -36,12 +39,15 @@ const Campeonatos = () => {
                 break;
             case 5:
                 setIcon5(<TaskAltIcon />)
+                setVisible6(true);
                 break;
             case 6:
                 setIcon6(<TaskAltIcon />)
+                setVisible7(true);
                 break;
             case 7:
                 setIcon7(<TaskAltIcon />)
+                setVisible8(true);
                 break;
             case 8:
                 setIcon8(<TaskAltIcon />)
@@ -58,7 +64,7 @@ const Campeonatos = () => {
     <>
       <Paper style={{ padding: '20px', backgroundColor: '#D7D7D7', borderRadius: '20px' }}>
         <Typography variant="h6" style={{ fontWeight: 'bold', marginBottom: '20px' }}>
-          Solicitud de Campeonato
+          SOLICITUD DE CAMPEONATO
         </Typography>
 
         <Grid container spacing={2}>
@@ -71,61 +77,61 @@ const Campeonatos = () => {
         </Grid>
 
         <div style={{ marginTop: '20px', textAlign: 'left' }}>
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: 7 }}>
-        <Typography>Carrera 1</Typography>
-        <IconButton onClick={() => handleClick(1)}>
-          {icon1}
-        </IconButton>
-      </div>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: 7 }}>
+            <Typography>Carrera 1</Typography>
+            <IconButton onClick={() => handleClick(1)}>
+              {icon1}
+            </IconButton>
+          </div>
 
           <div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
-        <Typography>Carrera 2</Typography>
-        <IconButton onClick={() => handleClick(2)}>
-        {icon2}
-        </IconButton>
-      </div>
+            <Typography>Carrera 2</Typography>
+            <IconButton onClick={() => handleClick(2)}>
+              {icon2}
+            </IconButton>
+          </div>
 
           <div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
-        <Typography>Carrera 3</Typography>
-        <IconButton onClick={() => handleClick(3)}>
-        {icon3}
-        </IconButton>
-      </div>
+            <Typography>Carrera 3</Typography>
+            <IconButton onClick={() => handleClick(3)}>
+              {icon3}
+            </IconButton>
+          </div>
 
           <div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
-        <Typography>Carrera 4</Typography>
-        <IconButton onClick={() => handleClick(4)}>
-        {icon4}
-        </IconButton>
-      </div>
+            <Typography>Carrera 4</Typography>
+            <IconButton onClick={() => handleClick(4)}>
+              {icon4}
+            </IconButton>
+          </div>
 
           <div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
-        <Typography>Carrera 5</Typography>
-        <IconButton onClick={() => handleClick(5)}>
-        {icon5}
-        </IconButton>
-      </div>
+            <Typography>Carrera 5</Typography>
+            <IconButton onClick={() => handleClick(5)}>
+              {icon5}
+            </IconButton>
+          </div>
 
-         <div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
-        <Typography>Carrera 6</Typography>
-        <IconButton onClick={() => handleClick(6)}>
-        {icon6}
-        </IconButton>
-      </div>
+          {visible6 && (<div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
+            <Typography>Carrera 6</Typography>
+            <IconButton onClick={() => handleClick(6)}>
+              {icon6}
+            </IconButton>
+          </div>)}
 
-          <div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
-        <Typography>Carrera 7</Typography>
-        <IconButton onClick={() => handleClick(7)}>
-        {icon7}
-        </IconButton>
-      </div>
+          {visible7 && (<div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
+            <Typography>Carrera 7</Typography>
+            <IconButton onClick={() => handleClick(7)}>
+              {icon7}
+            </IconButton>
+          </div>)}
 
-          <div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
-        <Typography>Carrera 8</Typography>
-        <IconButton onClick={() => handleClick(8)}>
-        {icon8}
-        </IconButton>
-      </div>
+          {visible8 && (<div style={{ display: 'flex', marginBottom: 7, alignItems: 'center' }}>
+            <Typography>Carrera 8</Typography>
+            <IconButton onClick={() => handleClick(8)}>
+              {icon8}
+            </IconButton>
+          </div>)}
 
         </div>
 
@@ -136,9 +142,9 @@ const Campeonatos = () => {
         
       </Paper>
 
-      {showForm && (<Paper style={{ padding: '20px', backgroundColor: '#D7D7D7', borderRadius: '20px' }}>
+      {showForm && (<Paper style={{ padding: '20px', backgroundColor: '#D7D7D7', borderRadius: '20px', maxWidth: '300px', marginLeft: '10px' }}>
           <Typography variant="h6" style={{ fontWeight: 'bold', marginBottom: '20px', textAlign: 'center' }}>
-            Nueva Carrera
+            NUEVA CARRERA
           </Typography>
 
           <Grid container spacing={2}>
