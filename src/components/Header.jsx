@@ -43,6 +43,38 @@ const Header = () => {
     navigate(userRole === 'noRole' ? '/' : `/${userRole}`);
   };
 
+  /*--------------------FEDERACIÓN----------------------*/
+
+  const handleFederacionCampeonatosClick = () => {
+    navigate('/federacion/campeonatos');
+  };
+
+  const handleFederacionReservasClick = () => {
+    navigate('/federacion/reservas');
+  };
+
+  const handleFederacionTripulacionesClick = () => {
+    navigate('/federacion/tripulaciones');
+  };
+
+  const handleFederacionLegocarsClick = () => {
+    navigate('/federacion/legocars');
+  };
+
+  /*--------------------EQUIPO------------------*/
+
+  const handleEquipoCampeonatosClick = () => {
+    navigate('/equipo/campeonatos');
+  };
+
+  const handleEquipoMisTripulacionesClick = () => {
+    navigate('/equipo/mistripulaciones');
+  };
+
+  const handleEquipoMisReservasClick = () => {
+    navigate('/equipo/misreservas');
+  };
+
 
   return (
     <AppBar sx={appBarStyle} position="static" >
@@ -61,14 +93,17 @@ const Header = () => {
         {userRole === 'federacion' && (          
           <Container sx={{ backgroundColor: "#F2F2F2",
           borderRadius: "30px", color:"black", minHeight:"50px", padding:"8px 0 0 0"}}>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleFederacionCampeonatosClick}>
               Campeonatos
             </Button>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleFederacionReservasClick}>
               Reservas
             </Button>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleFederacionTripulacionesClick}>
               Tripulaciones
+            </Button>
+            <Button component={Link} color="inherit" onClick={handleFederacionLegocarsClick}>
+              Legocars
             </Button>
           </Container>
         )}
@@ -77,13 +112,13 @@ const Header = () => {
         {userRole === 'equipo' && (          
           <Container sx={{ backgroundColor: "#F2F2F2",
           borderRadius: "30px", color:"black", minHeight:"50px", padding:"8px 0 0 0"}}>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleEquipoCampeonatosClick}>
               Campeonatos
             </Button>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleEquipoMisTripulacionesClick}>
               Mis Tripulaciones
             </Button>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleEquipoMisReservasClick}>
               Mis Reservas
             </Button>
           </Container>

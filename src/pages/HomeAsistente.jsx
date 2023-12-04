@@ -1,5 +1,6 @@
 // HomeAsistente.jsx
 import React, { useState } from 'react';
+import '../App.css';
 import {
   Typography,
   Grid,
@@ -172,7 +173,7 @@ const HomeAsistente = () => {
         </div>
 
         {/* Panel principal gris claro */}
-        <Paper elevation={3} style={{ padding: '30px', marginTop: '0px', marginBottom: '70px', backgroundColor: '#AFAFAF' }}>
+        <Paper elevation={3} style={{ padding: '30px', marginTop: '0px', marginBottom: '70px', backgroundColor: '#AFAFAF', borderRadius: '20px' }}>
           <Grid container spacing={3} direction="column">
             <h2>CAMPEONATOS</h2>
             {/* Primer subpanel */}
@@ -295,7 +296,12 @@ const HomeAsistente = () => {
         </Paper>
 
         {/* Diálogo de compra de entrada */}
-        <Dialog open={abrirDialogComprarEntrada} onClose={handleCloseDialog} maxWidth="xs" fullWidth>
+        <Dialog open={abrirDialogComprarEntrada} onClose={handleCloseDialog} maxWidth="xs" fullWidth PaperProps={{
+          style: {
+            backgroundColor: '#D7D7D7', // color gris
+            borderRadius: '20px',   // bordes redondeados
+          },
+        }}>
           <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>Pasarela de Pago</DialogTitle>
           <DialogContent>
             <form>
@@ -343,7 +349,12 @@ const HomeAsistente = () => {
         </Dialog>
 
         {/*Dialogo para valorar el campeonato*/}
-        <Dialog open={abrirDialogValorar} onClose={handleCloseDialogValorarCancelar} maxWidth="xs" fullWidth>
+        <Dialog open={abrirDialogValorar} onClose={handleCloseDialogValorarCancelar} maxWidth="xs" fullWidth PaperProps={{
+          style: {
+            backgroundColor: '#D7D7D7', // color gris
+            borderRadius: '20px',   // bordes redondeados
+          },
+        }}>
           <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>Valoración del campeonato</DialogTitle>
           <DialogContent>
             <form>
@@ -447,7 +458,12 @@ const HomeAsistente = () => {
         </Dialog>
 
         {/* Panel de información de la carrera */}
-        <Dialog open={showRaceInfo} onClose={handleCloseRaceInfo} maxWidth="md" fullWidth>
+        <Dialog open={showRaceInfo} onClose={handleCloseRaceInfo} maxWidth="md" fullWidth PaperProps={{
+          style: {
+            backgroundColor: '#D7D7D7', // color gris
+            borderRadius: '20px',   // bordes redondeados
+          },
+        }}>
           <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>Información del Campeonato</DialogTitle>
           <DialogContent>
             <Grid container spacing={2} direction="column">
