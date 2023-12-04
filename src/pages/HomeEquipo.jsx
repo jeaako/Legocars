@@ -1,5 +1,4 @@
 // HomeEquipo.jsx
-import Typography from '@mui/material/Typography';
 import Carrusel from '../components/Carrusel'
 import '../App.css';
 
