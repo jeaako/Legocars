@@ -43,6 +43,8 @@ const Header = () => {
     navigate(userRole === 'noRole' ? '/' : `/${userRole}`);
   };
 
+  /*--------------------FEDERACIÓN----------------------*/
+
   const handleFederacionCampeonatosClick = () => {
     navigate('/federacion/campeonatos');
   };
@@ -57,6 +59,20 @@ const Header = () => {
 
   const handleFederacionLegocarsClick = () => {
     navigate('/federacion/legocars');
+  };
+
+  /*--------------------EQUIPO------------------*/
+
+  const handleEquipoCampeonatosClick = () => {
+    navigate('/equipo/campeonatos');
+  };
+
+  const handleEquipoMisTripulacionesClick = () => {
+    navigate('/equipo/mistripulaciones');
+  };
+
+  const handleEquipoMisReservasClick = () => {
+    navigate('/equipo/misreservas');
   };
 
 
@@ -96,13 +112,13 @@ const Header = () => {
         {userRole === 'equipo' && (          
           <Container sx={{ backgroundColor: "#F2F2F2",
           borderRadius: "30px", color:"black", minHeight:"50px", padding:"8px 0 0 0"}}>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleEquipoCampeonatosClick}>
               Campeonatos
             </Button>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleEquipoMisTripulacionesClick}>
               Mis Tripulaciones
             </Button>
-            <Button component={Link} to="#" color="inherit">
+            <Button component={Link} color="inherit" onClick={handleEquipoMisReservasClick}>
               Mis Reservas
             </Button>
           </Container>
