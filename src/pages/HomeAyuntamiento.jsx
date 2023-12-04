@@ -1,5 +1,5 @@
 // HomeAyuntamiento.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Paper, Grid, Typography, Button } from '@mui/material';
 
 const HomeAyuntamiento = () => {
