@@ -298,8 +298,8 @@ const HomeAsistente = () => {
         {/* Diálogo de compra de entrada */}
         <Dialog open={abrirDialogComprarEntrada} onClose={handleCloseDialog} maxWidth="xs" fullWidth PaperProps={{
           style: {
-            backgroundColor: '#D7D7D7', // color gris
-            borderRadius: '20px',   // bordes redondeados
+            backgroundColor: '#D7D7D7', 
+            borderRadius: '20px',   
           },
         }}>
           <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>Pasarela de Pago</DialogTitle>

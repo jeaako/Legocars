@@ -223,11 +223,11 @@ const Header = () => {
 
         {/* SE PUEDEN ELIMINAR */}
         {/* HEADER AYUNTAMIENTO */}
-        {userRole === "ayuntamiento" && (
+        {/*userRole === "ayuntamiento" && (
           <Button component={Link} to="/ayuntamiento" color="inherit">
             Home Ayuntamiento
           </Button>
-        )}
+        )*/}
 
         {/* HEADER ASISTENTE */}
 
