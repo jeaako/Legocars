@@ -19,6 +19,7 @@ import {
   FormControlLabel,
   Radio,
 } from '@mui/material';
+import InfoCampeonato from '../components/InfoCampeonato';
 
 const HomeAsistente = () => {
   const [abrirDialogComprarEntrada, setabrirDialogComprarEntrada] = useState(false);
@@ -37,11 +38,6 @@ const HomeAsistente = () => {
   const [riesgo, setRiesgo] = useState('0');
   const [comentario, setComentario] = useState('');
   const [showRaceInfo, setShowRaceInfo] = useState(false);
-  const [raceInfo, setRaceInfo] = useState({
-    circuito: 0,
-    tipoCoche: '',
-    fecha: '',
-  });
 
   const handleCloseDialog = () => {
     setabrirDialogComprarEntrada(false);
@@ -89,7 +85,6 @@ const HomeAsistente = () => {
     } else if (boton1 == "valorar") {
       setabrirDialogValorar(true);
     }
-    
   };
 
   const handleCompraEntradaClick2 = () => {
@@ -130,33 +125,8 @@ const HomeAsistente = () => {
     handleCloseDialog();
   };
 
-  const getRandomInt = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
-
-  const getRandomCarType = () => {
-    const carTypes = ['4x4', 'Nascar', 'F1'];
-    const randomIndex = getRandomInt(0, carTypes.length - 1);
-    return carTypes[randomIndex];
-  };
-
-  const getRandomDate = () => {
-    const day = getRandomInt(1, 28);
-    const month = getRandomInt(1, 12);
-    return `${day < 10 ? '0' : ''}${day}/${month < 10 ? '0' : ''}${month}/2024`;
-  };
-
   const handleInfoClick = () => {
-    actualizarInfoCarrera();
     setShowRaceInfo(true);
-  };
-
-  const actualizarInfoCarrera = () => {
-    setRaceInfo({
-      circuito: getRandomInt(1, 10),
-      tipoCoche: getRandomCarType(),
-      fecha: getRandomDate(),
-    });
   };
 
   const handleCloseRaceInfo = () => {
@@ -458,65 +428,7 @@ const HomeAsistente = () => {
         </Dialog>
 
         {/* Panel de información de la carrera */}
-        <Dialog open={showRaceInfo} onClose={handleCloseRaceInfo} maxWidth="md" fullWidth PaperProps={{
-          style: {
-            backgroundColor: '#D7D7D7', // color gris
-            borderRadius: '20px',   // bordes redondeados
-          },
-        }}>
-          <DialogTitle style={{ textAlign: 'center', fontWeight: 'bold' }}>Información del Campeonato</DialogTitle>
-          <DialogContent>
-            <Grid container spacing={2} direction="column">
-              <Grid item container spacing={2}>
-                <Grid item xs={3}>
-                  <Typography variant="body2" style={{ fontWeight: 'bold' }}>
-                    Carrera
-                  </Typography>
-                </Grid>
-                <Grid item xs={3}>
-                  <Typography variant="body2" style={{ fontWeight: 'bold' }}>
-                    Circuito
-                  </Typography>
-                </Grid>
-                <Grid item xs={3}>
-                  <Typography variant="body2" style={{ fontWeight: 'bold' }}>
-                    Tipo de Coche
-                  </Typography>
-                </Grid>
-                <Grid item xs={3}>
-                  <Typography variant="body2" style={{ fontWeight: 'bold' }}>
-                    Fecha
-                  </Typography>
-                </Grid>
-              </Grid>
-              {[...Array(5)].map((_, index) => (
-                //actualizarInfoCarrera();
-                <Grid item container spacing={2} key={index}>
-                  <Grid item xs={3}>
-                    <Typography variant="body2">
-                      Carrera {index + 1}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={3}>
-                  <Typography variant="body2">
-                    {`Circuito ${raceInfo.circuito}`}
-                  </Typography>
-                </Grid>
-                <Grid item xs={3}>
-                  <Typography variant="body2">
-                    {raceInfo.tipoCoche}
-                  </Typography>
-                </Grid>
-                <Grid item xs={3}>
-                  <Typography variant="body2">
-                    {`Fecha ${raceInfo.fecha}`}
-                  </Typography>
-                </Grid>
-                </Grid>
-              ))}
-            </Grid>
-          </DialogContent>
-        </Dialog>
+        {showRaceInfo && (<InfoCampeonato open={showRaceInfo} onClose={handleCloseRaceInfo} />)}
 
 
       </Container>

@@ -1,6 +1,7 @@
 // HomeAyuntamiento.jsx
 import { useState } from 'react';
 import { Paper, Grid, Typography, Button } from '@mui/material';
+import InfoCampeonato from '../components/InfoCampeonato';
 
 const HomeAyuntamiento = () => {
 
@@ -10,6 +11,15 @@ const HomeAyuntamiento = () => {
   const [visible1, setVisible1] = useState(true);
   const [visible2, setVisible2] = useState(true);
   const [visible3, setVisible3] = useState(true);
+  const [showRaceInfo, setShowRaceInfo] = useState(false);
+
+  const handleShowInfo = () => {
+    setShowRaceInfo(true);
+  };
+
+  const handleCloseRaceInfo = () => {
+    setShowRaceInfo(false);
+  };
 
   const handleApproved1 = () => {
     setImagen1('../../resources/f1-approved.jpg');
@@ -46,7 +56,8 @@ const HomeAyuntamiento = () => {
       <Paper style={{ backgroundColor: '#D7D7D7', padding: '90px', width: '100%', borderRadius: '20px' }}>
         <Grid container spacing={3} style={{ flexWrap: 'nowrap' }}>
           {/* Primer subpanel */}
-          <Grid item xs={5}>
+          <Grid item xs={5} onMouseEnter={handleShowInfo}
+              onMouseLeave={handleCloseRaceInfo} >
             <Paper style={{ backgroundColor: '#ddd', padding: '20px', display: 'flex', flexDirection: 'column' }}>
               {/* Imagen */}
               <img src={imagen1} alt="Imagen 1" style={{ width: '100%', marginBottom: '10px' }} />
@@ -74,10 +85,12 @@ const HomeAyuntamiento = () => {
                 </Grid>
               </Grid>)}
             </Paper>
+            {showRaceInfo && (<InfoCampeonato open={showRaceInfo} onClose={handleCloseRaceInfo} />)}
           </Grid>
 
           {/* Segundo subpanel */}
-          <Grid item xs={5}>
+          <Grid item xs={5} onMouseEnter={handleShowInfo}
+              onMouseLeave={handleCloseRaceInfo}>
             <Paper style={{ backgroundColor: '#ddd', padding: '20px', display: 'flex', flexDirection: 'column' }}>
               <img src={imagen2} alt="Imagen 2" style={{ width: '100%', marginBottom: '10px' }} />
               <Typography variant="h6" style={{ fontWeight: 'bold', textAlign: 'left', whiteSpace: 'nowrap', fontSize: '16px' }}>
@@ -105,7 +118,8 @@ const HomeAyuntamiento = () => {
           </Grid>
 
           {/* Tercer subpanel */}
-          <Grid item xs={5}>
+          <Grid item xs={5} onMouseEnter={handleShowInfo}
+              onMouseLeave={handleCloseRaceInfo}>
             <Paper style={{ backgroundColor: '#ddd', padding: '20px', display: 'flex', flexDirection: 'column' }}>
               <img src={imagen3} alt="Imagen 3" style={{ width: '100%', marginBottom: '10px' }} />
               <Typography variant="h6" style={{ fontWeight: 'bold', textAlign: 'left', whiteSpace: 'nowrap', fontSize: '16px' }}>
