@@ -46,6 +46,9 @@ const Header = () => {
   const handleFederacionCampeonatosClick = () => {
     navigate("/federacion/campeonatos");
   };
+  const handleFederacionFacturasClick = () => {
+    navigate("/federacion/facturas");
+  };
 
   const handleFederacionReservasClick = () => {
     navigate("/federacion/reservas");
@@ -131,7 +134,7 @@ const Header = () => {
                
                 <MenuItem onClick={handleFederacionCampeonatosClick} style={{ justifyContent: 'center' }}>Solicitar</MenuItem>
                  {/* Cambiar handleClose */}
-                <MenuItem onClick={handleClose} style={{ justifyContent: 'center' }}>Pagar Factura</MenuItem>
+                <MenuItem onClick={handleFederacionFacturasClick} style={{ justifyContent: 'center' }}>Pagar Factura</MenuItem>
               </Menu>
              
             <Button
