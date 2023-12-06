@@ -11,13 +11,13 @@ import HomeFederacion from './pages/HomeFederacion';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Campeonatos from './pages/federacion/campeonatos';
+import Facturas from './pages/federacion/Facturas';
 import Reservas from './pages/federacion/Reservas';
 import Tripulaciones from './pages/federacion/Tripulaciones';
 import Legocars from './pages/federacion/Legocars';
 import EquipCampeonatos from './pages/equipo/Campeonatos';
 import MisReservas from './pages/equipo/MisReservas';
 import MisTripulaciones from './pages/equipo/MisTripulaciones';
-
 import { UserProvider } from './auth-routes/UserContext';
 import { useUser } from './auth-routes/UserContext'
 import Layout from './components/Layout';
@@ -40,6 +40,7 @@ function AuthenticatedRoutes() {
        <Route path="equipo/mistripulaciones" element={<PrivateRoute rol={'equipo'}><MisTripulaciones /></PrivateRoute>} />
        <Route path="federacion"element={<PrivateRoute rol={'federacion'}><HomeFederacion /></PrivateRoute>} /> 
        <Route path="federacion/campeonatos" element={<PrivateRoute rol={'federacion'}><Campeonatos /></PrivateRoute>} />
+       <Route path="federacion/facturas" element={<PrivateRoute rol={'federacion'}><Facturas /></PrivateRoute>} />
        <Route path="federacion/reservas" element={<PrivateRoute rol={'federacion'}><Reservas /></PrivateRoute>} />
        <Route path="federacion/tripulaciones" element={<PrivateRoute rol={'federacion'}><Tripulaciones /></PrivateRoute>} />
        <Route path="federacion/legocars" element={<PrivateRoute rol={'federacion'}><Legocars /></PrivateRoute>} />

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Paper, Grid, Typography, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
+import { useState } from 'react';
+import { Box, Container, Paper, Grid, Typography, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
 
 const Tripulaciones = () => {
     const [selectedCampeonato, setSelectedCampeonato] = useState('');
@@ -13,7 +13,16 @@ const Tripulaciones = () => {
     };
 
     return (
-        <Container maxWidth="md" >
+        <Box
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    minHeight="100vh" // Ajusta esto según tus necesidades
+    minWidth="50vw"
+  >
+        <Container maxWidth="sm" display="flex"
+        justifyContent="center"
+        alignItems="center">
             <Paper elevation={3} style={{ padding: '30px', maxWidth: '500px', borderRadius: '20px', backgroundColor: '#D7D7D7', marginTop: '20px' }}>
                 <Grid container spacing={2} direction="column">
                     <Grid item xs={12}>
@@ -124,8 +133,8 @@ const Tripulaciones = () => {
                     </Grid>
                 </Grid>
             </Paper>)}
-
         </Container>
+        </Box>
     );
 }
 
