@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { Container, Paper, Grid, Typography, FormControl, InputLabel, Select, MenuItem, Button, TextField} from '@mui/material';
+import { useState } from 'react';
+import { Container, Paper, Grid, Typography, FormControl, InputLabel, Select, MenuItem, Button} from '@mui/material';
 
 
 const Tripulaciones = () => {

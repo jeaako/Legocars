@@ -6,6 +6,8 @@ import {
   DialogContent,
 } from '@mui/material';
 
+import PropTypes from 'prop-types';
+
 const InfoCampeonato = ({open, onClose}) => {
 
       const getRandomInt = (min, max) => {
@@ -94,5 +96,10 @@ const InfoCampeonato = ({open, onClose}) => {
         </Dialog>
     );
 }
+
+InfoCampeonato.propTypes = {
+    open: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+  };
 
 export default InfoCampeonato;

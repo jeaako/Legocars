@@ -119,7 +119,8 @@ const HomeAyuntamiento = () => {
 
           {/* Tercer subpanel */}
           <Grid item xs={5} onMouseEnter={handleShowInfo}
-              onMouseLeave={handleCloseRaceInfo}>
+              onMouseLeave={handleCloseRaceInfo}
+            >
             <Paper style={{ backgroundColor: '#ddd', padding: '20px', display: 'flex', flexDirection: 'column' }}>
               <img src={imagen3} alt="Imagen 3" style={{ width: '100%', marginBottom: '10px' }} />
               <Typography variant="h6" style={{ fontWeight: 'bold', textAlign: 'left', whiteSpace: 'nowrap', fontSize: '16px' }}>

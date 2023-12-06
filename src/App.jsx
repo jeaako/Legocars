@@ -18,6 +18,7 @@ import Legocars from './pages/federacion/Legocars';
 import EquipCampeonatos from './pages/equipo/Campeonatos';
 import MisReservas from './pages/equipo/MisReservas';
 import MisTripulaciones from './pages/equipo/MisTripulaciones';
+import Ranking from './pages/federacion/Ranking';
 import { UserProvider } from './auth-routes/UserContext';
 import { useUser } from './auth-routes/UserContext'
 import Layout from './components/Layout';
@@ -44,6 +45,7 @@ function AuthenticatedRoutes() {
        <Route path="federacion/reservas" element={<PrivateRoute rol={'federacion'}><Reservas /></PrivateRoute>} />
        <Route path="federacion/tripulaciones" element={<PrivateRoute rol={'federacion'}><Tripulaciones /></PrivateRoute>} />
        <Route path="federacion/legocars" element={<PrivateRoute rol={'federacion'}><Legocars /></PrivateRoute>} />
+       <Route path="federacion/ranking" element={<PrivateRoute rol={'federacion'}><Ranking /></PrivateRoute>} />
       </Route>
     </Routes>
   );

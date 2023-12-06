@@ -1,6 +1,6 @@
 // Header.jsx
 import { useState } from "react";
-import { AppBar, Toolbar, Button, Link, Menu, MenuItem } from "@mui/material";
+import { AppBar, Toolbar, Button, Link, Menu, MenuItem, Snackbar, Alert } from "@mui/material";
 import { useUser } from "../auth-routes/UserContext";
 import { useNavigate } from "react-router-dom";
 import { Container } from "@mui/system";
@@ -32,8 +32,11 @@ const logoRadiator = {
 const Header = () => {
   const { userRole, isAuthenticated } = useUser();
   const navigate = useNavigate();
+  const [carreraFinalSolicitada, setCarreraFinalSolicitada] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleLoginClick = () => {
+    setCarreraFinalSolicitada(false);
     navigate("/login"); // Navegar al LoginForm
   };
 
@@ -62,6 +65,11 @@ const Header = () => {
     navigate("/federacion/legocars");
   };
 
+  const handleFederacionRankingClick = () => {
+    navigate("/federacion/ranking");
+  };
+
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorEl2, setAnchorEl2] = useState(null);
 
@@ -70,6 +78,25 @@ const Header = () => {
   };
   const handleClose2 = () => {
     setAnchorEl2(null);
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSnackbarOpen(false);
+  };
+
+  const handleSolicitarCarreraFinal = () => {
+    // Lógica para solicitar la carrera final
+    // Puedes agregar aquí la lógica para mostrar un mensaje o realizar una solicitud al backend
+    // Actualizar el estado para indicar que la carrera final ha sido solicitada
+    setCarreraFinalSolicitada(true);
+    // Cerrar el menú después de solicitar la carrera final
+    handleClose2();
+    // Mostrar el Snackbar
+    setSnackbarOpen(true);
   };
 
 
@@ -181,11 +208,31 @@ const Header = () => {
                 transformOrigin={{ vertical: "top", horizontal: "center" }}
               >
                 
-                 {/* Cambiar handleClose2 */}
-                <MenuItem onClick={handleClose2} style={{ justifyContent: 'center' }}>Asignar Fecha</MenuItem>
-                <MenuItem onClick={handleClose2} style={{ justifyContent: 'center' }}>Solicitar Carrera Final</MenuItem>
-                <MenuItem onClick={handleClose2} style={{ justifyContent: 'center' }}>Ranking</MenuItem>
+                <MenuItem
+                  onClick={carreraFinalSolicitada ? null : handleSolicitarCarreraFinal}
+                  disabled={carreraFinalSolicitada}
+                  style={{ justifyContent: 'center' }}
+                >
+                  Solicitar Carrera Final
+                </MenuItem>
+                <MenuItem onClick={handleFederacionRankingClick} style={{ justifyContent: 'center' }}>Ranking</MenuItem>
               </Menu>
+               {/* Snackbar para mostrar el mensaje temporal */}
+              <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={3000} // Duración en milisegundos (3 segundos en este caso)
+                onClose={handleSnackbarClose}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }} // Añade esta línea
+              >
+                <Alert
+                  elevation={6}
+                  variant="filled"
+                  onClose={handleSnackbarClose}
+                  severity="success"
+                >
+                  Carrera final solicitada
+                </Alert>
+              </Snackbar>
           </Container>
         )}
 
