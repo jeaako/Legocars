@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
-import { Paper, Typography, TextField, Button, Grid, IconButton, MenuItem, FormControl, InputLabel, Select } from '@mui/material';
+import {
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  Grid,
+  IconButton,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
@@ -139,48 +153,60 @@ const Campeonatos = () => {
           Enviar Solicitud
         </Button>
 
-        
+
       </Paper>
 
-      {showForm && (<Paper style={{ padding: '20px', backgroundColor: '#D7D7D7', borderRadius: '20px', maxWidth: '300px', marginLeft: '10px' }}>
-          <Typography variant="h6" style={{ fontWeight: 'bold', marginBottom: '20px', textAlign: 'center' }}>
+      <Dialog open={showForm} onClose={() => setShowForm(false)} maxWidth="xs" fullWidth PaperProps={{
+        style: {
+          backgroundColor: '#D7D7D7',
+          borderRadius: '20px',
+        },
+      }}>
+        <DialogTitle>
+          <Typography variant="h6" style={{ fontWeight: 'bold', textAlign: 'center' }}>
             NUEVA CARRERA
           </Typography>
+        </DialogTitle>
+        <DialogContent>
+          <form>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <FormControl fullWidth>
+                  <InputLabel id="tipoCocheLabel">Tipo de Coche</InputLabel>
+                  <Select labelId="tipoCocheLabel" id="tipoCoche" label="Tipo de Coche">
+                    <MenuItem value="4x4">4x4</MenuItem>
+                    <MenuItem value="F1">F1</MenuItem>
+                    <MenuItem value="nascar">Nascar</MenuItem>
+                    <MenuItem value="rally">Rally</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <TextField label="Ubicación" fullWidth variant="outlined" />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField fullWidth type="date" variant="outlined" />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField label="Número de Asistentes" fullWidth type="number" variant="outlined" />
+              </Grid>
+            </Grid>
 
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <FormControl fullWidth>
-                <InputLabel id="tipoCocheLabel">Tipo de Coche</InputLabel>
-                <Select
-                  labelId="tipoCocheLabel"
-                  id="tipoCoche"
-                  label="Tipo de Coche"
-                >
-                  <MenuItem value="4x4">4x4</MenuItem>
-                  <MenuItem value="F1">F1</MenuItem>
-                  <MenuItem value="nascar">Nascar</MenuItem>
-                  <MenuItem value="rally">Rally</MenuItem>
-                </Select>
-              </FormControl>
+            <Grid item container spacing={2} style={{ marginTop: '5px' }}>
+              <Grid item xs={6} >
+                <Button variant="contained" color="primary" fullWidth onClick={handleCrearCarrera}>
+                  Aceptar
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <Button variant="contained" color="secondary" fullWidth onClick={() => setShowForm(false)}>
+                  Cancelar
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField label="Ubicación" fullWidth variant="outlined" />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField fullWidth type="date" variant="outlined" />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField label="Número de Asistentes" fullWidth type="number" variant="outlined" />
-            </Grid>
-          </Grid>
-
-          <Button variant="contained" color="primary" style={{ marginTop: '20px', marginRight: '10px' }} onClick={handleCrearCarrera}>
-            Aceptar
-          </Button>
-          <Button variant="contained" color="secondary" style={{ marginTop: '20px' }} onClick={() => setShowForm(false)}>
-            Cancelar
-          </Button>
-        </Paper>)}
+          </form>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };

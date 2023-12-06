@@ -5,14 +5,8 @@ import {
   Paper,
   Container,
   Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
   TextField,
-  Select,
-  MenuItem,
   FormControl,
-  InputLabel,
   RadioGroup,
   FormControlLabel,
   Radio,
@@ -21,7 +15,7 @@ import {
 } from '@mui/material';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-
+import InfoCampeonato from '../../components/InfoCampeonato';
 
 const Campeonatos = () => {
 
@@ -34,8 +28,17 @@ const Campeonatos = () => {
     const [visible5, setVisible5] = useState(true);
     const [visible6, setVisible6] = useState(true);
     const [showForm, setShowForm] = useState(false);
+    const [showRaceInfo, setShowRaceInfo] = useState(false);
 
     const formRef = useRef(null);
+
+    const handleCloseRaceInfo = () => {
+        setShowRaceInfo(false);
+    };
+
+    const handleInfoClick = () => {
+        setShowRaceInfo(true);
+    };
 
     const handlePrev = () => {
         setPagina1(true);
@@ -144,7 +147,7 @@ const Campeonatos = () => {
                                             variant="contained"
                                             color="secondary"
                                             style={{ marginLeft: 10 }}
-
+                                            onClick={handleInfoClick}
                                         >
                                             Info
                                         </Button>
@@ -208,7 +211,7 @@ const Campeonatos = () => {
                                             variant="contained"
                                             color="secondary"
                                             style={{ marginLeft: 10 }}
-
+                                            onClick={handleInfoClick}
                                         >
                                             Info
                                         </Button>
@@ -272,6 +275,7 @@ const Campeonatos = () => {
                                             variant="contained"
                                             color="secondary"
                                             style={{ marginLeft: 10 }}
+                                            onClick={handleInfoClick}
                                         >
                                             Info
                                         </Button>
@@ -291,6 +295,8 @@ const Campeonatos = () => {
                         </div>
                     </Grid>
                 </Paper>
+
+                {showRaceInfo && (<InfoCampeonato open={showRaceInfo} onClose={handleCloseRaceInfo} />)}
 
 
                 {/*Panel de incripción*/}
